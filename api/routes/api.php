@@ -16,6 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::middleware('auth:sanctum')->group(function() {
+
+    Route::apiResources([
+        'chirps'=> ChirpController::class,
+    ]);
+
+});
+
 Route::prefix('auth')->group(function() {
 
     // Unauthenticated routes
