@@ -1,8 +1,6 @@
-import 'package:chirper/screens/home.dart';
-import 'package:chirper/screens/login.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 // Themes
 import 'package:chirper/themes/dark.dart';
@@ -12,6 +10,8 @@ import 'package:chirper/themes/light.dart';
 import 'package:chirper/providers/auth.dart';
 
 // Screens
+import 'package:chirper/screens/home.dart';
+import 'package:chirper/screens/auth/login.dart';
 
 class App extends StatefulWidget {
   const App({super.key});
@@ -38,10 +38,11 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Chirper',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.system,
+      debugShowCheckedModeBanner: false,
       home: Consumer<AuthProvider>(
         builder: (context, value, child) {
           if (value.isAuthenticated) {
